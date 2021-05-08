@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+
+
+
+    <title>Title</title>
+</head>
+<body>
+
+<script language="javascript">
+    //创建数据库连接对象
+    var conn = new ActiveXObject("ADODB.Connection");
+
+    var bike_sums = [];
+    var area_sums = [];
+
+    //查询语句
+    var sql1 = " select aa.`name` area,cc.新增订单 order_sm\n" +
+        " from\n" +
+        "(select a.f_name,b.name,a.f_id from py_franchisee a,py_area b where a.f_city=b.areaid and a.f_state='1') aa\n" +
+        "\n" +
+        "left join\n" +
+        "\n" +
+        "(select c.f_id,count(*) 新增订单 from  py_package_order c,py_package_order_log d where c.id=d.p_order_id and FROM_UNIXTIME(d.add_time,'%Y-%m-%d')=date_format(now(),'%Y-%m-%d'); and d.pay_stat='1' and d.money/100>'10' and c.addtime=d.add_time and c.order_status in('2','3','4','6','5') group by c.f_id ) cc on aa.f_id=cc.f_id\n" +
+        "\n" +
+        "\n" +
+        "order by cc.`新增订单`  desc LIMIT 6 ";
+    alert(sql1);
+    rs.open(sql, conn);
+    alert(rs(0));//取出第一个来
+    rs.close();
+    rs = null;
+    conn.close();
+    conn = null;
+</script>
+</body>
+</html>
