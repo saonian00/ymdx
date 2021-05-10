@@ -10,7 +10,7 @@
   }, 5000);
   function largeScreen() {
     $.ajax({
-      url: "http://47.98.134.89:20008/largeScreen",
+      url: "https://api.zuche.miway.com/largeScreen",
       type: "POST",
       context: document.body,
       dataType: "JSON",
