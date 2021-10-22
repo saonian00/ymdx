@@ -751,7 +751,7 @@
       ],
       series: [
         {
-          name: "订单数",
+          name: "流水(元)",
           type: "line",
           smooth: true,
           symbol: "circle",
